@@ -20,5 +20,7 @@
     <Folder Include="Pages\" />
     <Folder Include="Helpers\" />
     <Folder Include="Services\" />
+    <Folder Include="Resources\" />
+    <Folder Include="Controls\" />
   </ItemGroup>
 </Project>

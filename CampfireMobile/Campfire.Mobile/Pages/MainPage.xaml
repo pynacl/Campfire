@@ -2,13 +2,38 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Campfire.Mobile.MainPage"
+             xmlns:controls="clr-namespace:Campfire.Mobile.Controls"
              Title="{Binding Title}">
     <ContentPage.Content>
-        <Grid RowDefinitions="*,*,*">
+        <Grid Padding="16" RowDefinitions="*,*,*">
             <StackLayout Grid.Row="1">
-                <Label Text="Name "/>
-                <Entry Text="{Binding Username}"/>
-                <Button Text="Join"/>
+                <Frame
+                    Padding="0"
+                    HeightRequest="58"
+                    HasShadow="False"
+                    BackgroundColor="{StaticResource NeutralGray}"
+                    BorderColor="White"
+                    CornerRadius="10">
+                    <controls:MinimalEntry
+                        Margin="4,0,0,0"
+                        Placeholder="Enter username..."
+                        PlaceholderColor="{StaticResource NeutralGray3}"
+                        Text="{Binding Username}"/>
+                </Frame>
+                
+                <Button
+                    Margin="0,16,0,16"
+                    HeightRequest="48"
+                        Text="Join"
+                        Command="{Binding JoinCommand}"
+                        FontAttributes="Bold"
+                        FontSize="Medium"
+                        BackgroundColor="White"
+                        TextColor="{StaticResource PrimaryOrange1}"
+                        BorderWidth="1"
+                        BorderColor="{StaticResource PrimaryOrange1}"
+                        CornerRadius="10"/>
+
             </StackLayout>
         </Grid>
     </ContentPage.Content>

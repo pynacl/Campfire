@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <!-- COLOR RESOURCES: 1=LIGHTEST, EACH NUMBER INCREMENT INCREASES DARKNESS -->
+
+    <!-- Primary -->
+    <Color x:Key="PrimaryOrange1">#FF9B54</Color>
+    <Color x:Key="PrimaryOrange2">#FF7F51</Color>
+    <Color x:Key="PrimaryRed1">#CE4257</Color>
+    <Color x:Key="PrimaryRed2">#720026</Color>
+    <Color x:Key="PrimaryRed3">#4F000B</Color>
+    
+    <!-- Neutral -->
+    <Color x:Key="NeutralGray">#F3F5F6</Color>
+    <Color x:Key="NeutralGray1">#E0E4E8</Color>
+    <Color x:Key="NeutralGray2">#CDD4DB</Color>
+    <Color x:Key="NeutralGray3">#BBC4CE</Color>
+    <Color x:Key="NeutralGray4">#898F96</Color>
+    <Color x:Key="NeutralGray5">#555A5E</Color>
+    <Color x:Key="NeutralGray6">#3e4245</Color>
+    <Color x:Key="NeutralGray7">#393c3f</Color>
+    <Color x:Key="NeutralGray8">#2e3133</Color>
+    <Color x:Key="NeutralGray9">#1d1e20</Color>
+    <Color x:Key="NeutralGray10">#0c0c0d</Color>
+
+    <!-- Accents -->
+    <Color x:Key="AccentGreen1">#8BD9B8</Color>
+    <Color x:Key="AccentGreen2">#45C28D</Color>
+    <Color x:Key="AccentGreen3">#00AC63</Color>
+    <Color x:Key="AccentGreen4">#007E49</Color>
+    <Color x:Key="AccentGreen5">#004F2D</Color>
+
+    <Color x:Key="AccentRed1">#D6968B</Color>
+    <Color x:Key="AccentRed2">#BE5745</Color>
+    <Color x:Key="AccentRed3">#A61900</Color>
+    <Color x:Key="AccentRed4">#791300</Color>
+    <Color x:Key="AccentRed5">#4C0C00</Color>
+
+    <Color x:Key="AccentYellow1">#F5E7BA</Color>
+    <Color x:Key="AccentYellow2">#F0DA92</Color>
+    <Color x:Key="AccentYellow3">#E8CA68</Color>
+    <Color x:Key="AccentYellow4">#AB954F</Color>
+    <Color x:Key="AccentYellow5">#6A5D31</Color>
+
+</ResourceDictionary>
