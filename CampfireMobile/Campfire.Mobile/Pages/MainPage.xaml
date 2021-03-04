@@ -35,7 +35,7 @@
                         Text="Join"
                         Command="{Binding JoinCommand}"
                         FontAttributes="Bold"
-                        FontSize="Medium"
+                        FontSize="Small"
                         BackgroundColor="White"
                         TextColor="{StaticResource PrimaryOrange1}"
                         BorderWidth="1"

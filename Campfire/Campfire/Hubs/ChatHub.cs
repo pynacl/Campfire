@@ -8,7 +8,7 @@ namespace Campfire.Hubs
     {
         public async Task SendMessageAsync(string userId, string message)
         {
-            await Clients.All.SendAsync("ReceivedMessage");
+            await Clients.All.SendAsync("ReceivedMessage", userId, message);
         }
     }
 }

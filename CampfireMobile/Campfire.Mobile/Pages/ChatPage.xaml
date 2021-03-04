@@ -35,7 +35,7 @@
                         Text="Send"
                         Command="{Binding SendMessageCommand}"
                         FontAttributes="Bold"
-                        FontSize="Medium"
+                        FontSize="Small"
                         TextColor="White"
                         BorderWidth="1"
                         BackgroundColor="{StaticResource PrimaryOrange1}"
