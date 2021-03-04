@@ -30,6 +30,7 @@ namespace Campfire.Mobile
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<ChatPage, ChatPageViewModel>();
 
             containerRegistry.Register<IChatService, ChatService>();
         }

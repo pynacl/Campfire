@@ -1,6 +1,46 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Campfire.Mobile.Pages.ChatPage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Campfire.Mobile.Controls"
+             x:Class="Campfire.Mobile.Pages.ChatPage">
     <ContentPage.Content>
-        
+        <Grid RowDefinitions="*, auto">
+            <ListView ItemsSource="{Binding Messages}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid RowDefinitions="auto, auto">
+                                <Label Text="{Binding Username}"/>
+                                <Label Text="{Binding Message}"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout Padding="16">
+            <Frame
+                    Padding="0"
+                    HeightRequest="58"
+                    HasShadow="False"
+                    BackgroundColor="{StaticResource NeutralGray}"
+                    BorderColor="White"
+                    CornerRadius="10">
+                <controls:MinimalEntry Margin="8,0,0,0" Text="{Binding Message}" Placeholder="Aa"/>
+
+
+            </Frame>
+                <Button
+                    Margin="0" 
+                    HeightRequest="48"
+                        Text="Send"
+                        Command="{Binding SendMessageCommand}"
+                        FontAttributes="Bold"
+                        FontSize="Medium"
+                        TextColor="White"
+                        BorderWidth="1"
+                        BackgroundColor="{StaticResource PrimaryOrange1}"
+                        CornerRadius="10"/>
+                </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
