@@ -1,5 +1,6 @@
 ﻿using System;
 using Campfire.Mobile.Pages;
+using Campfire.Mobile.Services;
 using Prism;
 using Prism.Ioc;
 using Xamarin.Forms;
@@ -29,6 +30,8 @@ namespace Campfire.Mobile
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+
+            containerRegistry.Register<IChatService, ChatService>();
         }
     }
 }

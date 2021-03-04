@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Threading.Tasks;
+
 namespace Campfire.Mobile.Services
 {
-    public class IChatService
+    public interface IChatService
     {
-        public IChatService()
-        {
-        }
+        Task Connect();
+        Task Disconnect();
+        void ReceiveMessage(Action<string, string> GetMessageAndUser);
+        Task SendMessage(string userId, string message);
     }
 }
