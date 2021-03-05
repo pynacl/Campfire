@@ -10,7 +10,7 @@ namespace Campfire.Mobile.Services
 
         public ChatService()
         {
-            hubConnection = new HubConnectionBuilder().WithUrl("http://localhost:44301/ChatHub").Build();
+            hubConnection = new HubConnectionBuilder().WithUrl("http://10.0.2.2:5000/ChatHub").Build();
         }
 
         public async Task Connect()

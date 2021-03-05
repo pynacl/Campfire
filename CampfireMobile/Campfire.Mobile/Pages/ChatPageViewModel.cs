@@ -22,15 +22,15 @@ namespace Campfire.Mobile.Pages
             set => SetProperty(ref username, value);
         }
 
-        private string message;
-        public string Message
+        private string userMessage;
+        public string UserMessage
         {
-            get => message;
-            set => SetProperty(ref message, value);
+            get => userMessage;
+            set => SetProperty(ref userMessage, value);
         }
 
-        private ObservableCollection<Message> messages = new ObservableCollection<Message>();
-        public ObservableCollection<Message> Messages
+        private IEnumerable<Message> messages;
+        public IEnumerable<Message> Messages
         {
             get => messages;
             set => SetProperty(ref messages, value);
@@ -54,12 +54,14 @@ namespace Campfire.Mobile.Pages
                 // invalid username, go back
                 await _navigationService.GoBackAsync();
             }
+            Username = username;
 
             InitializeChat();
         }
 
         private async void InitializeChat()
         {
+            Messages = new List<Message>();
             try
             {
                 _chatService.ReceiveMessage(GetMessage);
@@ -77,28 +79,25 @@ namespace Campfire.Mobile.Pages
         {
             get
             {
-                return new Command(async () =>
+                return new Command(() =>
                 {
-                    if (Username != null && Message != null)
-                    {
-                        await _chatService.SendMessage(Username, Message);
-                        AddMessageToList(Username, Message, true);
-                    }
+                    _chatService.SendMessage(Username, UserMessage);
+                    AddMessage(Username, UserMessage, true);
                 });
             }
         }
 
         private void GetMessage(string username, string message)
         {
-            AddMessageToList(username, message, false);
+            AddMessage(username, message, false);
         }
 
-        private void AddMessageToList(string username, string message, bool isOwner)
+        private void AddMessage(string username, string message, bool isOwner)
         {
-            var tempMessageList = Messages.ToList();
-            tempMessageList.Add(new Message { IsOwner = isOwner, Value = message, Username = username });
-            Messages = new ObservableCollection<Message>(tempMessageList);
-            Message = string.Empty;
+            var tempList = Messages.ToList();
+            tempList.Add(new Message { IsOwner = isOwner, Value = message, Username = username });
+            Messages = new List<Message>(tempList);
+            UserMessage = string.Empty;
         }
     }
 }

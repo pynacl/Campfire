@@ -7,7 +7,7 @@ namespace Campfire.Mobile.Services
     {
         Task Connect();
         Task Disconnect();
-        void ReceiveMessage(Action<string, string> GetMessageAndUser);
         Task SendMessage(string userId, string message);
+        void ReceiveMessage(Action<string, string> GetMessageAndUser);
     }
 }

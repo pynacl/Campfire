@@ -47,7 +47,7 @@ namespace Campfire
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
-                endpoints.MapHub<ChatHub>("ChatHub");
+                endpoints.MapHub<ChatHub>("/ChatHub");
             });
 
 

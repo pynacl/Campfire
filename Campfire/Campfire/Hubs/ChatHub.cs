@@ -6,9 +6,9 @@ namespace Campfire.Hubs
 {
     public class ChatHub : Hub
     {
-        public async Task SendMessageAsync(string userId, string message)
+        public async Task SendMessage(string userId, string message)
         {
-            await Clients.All.SendAsync("ReceivedMessage", userId, message);
+            await Clients.Others.SendAsync("ReceiveMessage", userId, message);
         }
     }
 }

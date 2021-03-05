@@ -1,34 +1,81 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
              xmlns:controls="clr-namespace:Campfire.Mobile.Controls"
+             NavigationPage.HasNavigationBar="false"
+             xmlns:converters="clr-namespace:Campfire.Mobile.Converters"
              x:Class="Campfire.Mobile.Pages.ChatPage">
+
+    <ContentPage.Resources>
+        <converters:InverseBooleanToVisibility x:Key="InverseBooleanToVisibility"/>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
-        <Grid RowDefinitions="*, auto">
-            <ListView ItemsSource="{Binding Messages}">
+        <Grid RowDefinitions="*, auto" Margin="10">
+            <ListView
+                ItemsSource="{Binding Messages}"
+                 Grid.Row="0"
+                  SeparatorVisibility="None"
+                  HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <Grid RowDefinitions="auto, auto">
-                                <Label Text="{Binding Username}"/>
-                                <Label Text="{Binding Message}"/>
+                                <Grid ColumnDefinitions="*, *" IsVisible="{Binding IsOwner}"
+                                      Grid.Row="0">
+                                    <Frame CornerRadius="30"
+                                       Grid.Column="1"
+                                       HorizontalOptions="End"
+                                       HasShadow="True"
+                                       Margin="0"
+                                       BackgroundColor="{StaticResource PrimaryOrange2}"
+                                       Padding="10">
+                                        <Label Text="{Binding Value}"
+                                           Margin="10"
+                                           TextColor="White"
+                                           LineBreakMode="WordWrap"/>
+                                    </Frame>
+                                </Grid>
+                                <Grid Padding="0,0,0,16" ColumnDefinitions="*, *"
+                                      IsVisible="{Binding IsOwner, Converter={StaticResource InverseBooleanToVisibility}}"
+                                  Grid.Row="1">
+                                    <Frame CornerRadius="30"
+                                       HasShadow="True"
+                                       Margin="0"
+                                           HorizontalOptions="StartAndExpand"
+                                       BackgroundColor="{StaticResource NeutralGray1}"
+                                       Padding="10">
+                                        <Label Text="{Binding Value}"
+                                           Margin="10"
+                                           TextColor="Black"
+                                           LineBreakMode="WordWrap"/>
+                                    </Frame>
+                                </Grid>
+
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <StackLayout Padding="16">
-            <Frame
+
+
+            <StackLayout Padding="16" Grid.Row="1">
+                <Frame
                     Padding="0"
                     HeightRequest="58"
                     HasShadow="False"
                     BackgroundColor="{StaticResource NeutralGray}"
                     BorderColor="White"
                     CornerRadius="10">
-                <controls:MinimalEntry Margin="8,0,0,0" Text="{Binding Message}" Placeholder="Aa"/>
 
+                    <controls:MinimalEntry
+                        Margin="8,0,0,0"
+                        Text="{Binding UserMessage}"
+                        Placeholder="Aa"/>
 
-            </Frame>
+                </Frame>
                 <Button
                     Margin="0" 
                     HeightRequest="48"
@@ -40,7 +87,7 @@
                         BorderWidth="1"
                         BackgroundColor="{StaticResource PrimaryOrange1}"
                         CornerRadius="10"/>
-                </StackLayout>
+            </StackLayout>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
