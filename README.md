@@ -5,7 +5,7 @@ Real Time Communication or RTC as the cool kids call it has always been a hot to
 
 <p float="left">
   <img src="https://github.com/pynacl/Campfire/blob/master/screenshots/androidScreenshot.png" width="600" />
-  <img src="https://github.com/pynacl/Campfire/blob/master/screenshots/iosScreenshot.png" width="350" /> 
+  <img src="https://github.com/pynacl/Campfire/blob/master/screenshots/iosScreenshot.png" width="300" /> 
 </p>
 
 
