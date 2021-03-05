@@ -14,6 +14,13 @@
 
     <ContentPage.Content>
         <Grid RowDefinitions="*, auto" Margin="10">
+            <Grid.Padding>
+   <OnPlatform x:TypeArguments="Thickness">
+     <On Platform="Android, WinPhone">0</On>
+     <On Platform="iOS">0,20,0,0</On>
+    </OnPlatform>
+  </Grid.Padding>
+
             <ListView
                 ItemsSource="{Binding Messages}"
                  Grid.Row="0"
@@ -28,7 +35,7 @@
                                     <Frame CornerRadius="30"
                                        Grid.Column="1"
                                        HorizontalOptions="End"
-                                       HasShadow="True"
+                                       HasShadow="False"
                                        Margin="0"
                                        BackgroundColor="{StaticResource PrimaryOrange2}"
                                        Padding="10">
@@ -42,7 +49,7 @@
                                       IsVisible="{Binding IsOwner, Converter={StaticResource InverseBooleanToVisibility}}"
                                   Grid.Row="1">
                                     <Frame CornerRadius="30"
-                                       HasShadow="True"
+                                       HasShadow="False"
                                        Margin="0"
                                            HorizontalOptions="StartAndExpand"
                                        BackgroundColor="{StaticResource NeutralGray1}"
@@ -84,7 +91,6 @@
                         FontAttributes="Bold"
                         FontSize="Small"
                         TextColor="White"
-                        BorderWidth="1"
                         BackgroundColor="{StaticResource PrimaryOrange1}"
                         CornerRadius="10"/>
             </StackLayout>

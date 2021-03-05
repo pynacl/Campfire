@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.SignalR.Client;
+using Xamarin.Forms;
 
 namespace Campfire.Mobile.Services
 {
@@ -10,7 +11,15 @@ namespace Campfire.Mobile.Services
 
         public ChatService()
         {
-            hubConnection = new HubConnectionBuilder().WithUrl("http://10.0.2.2:5000/ChatHub").Build();
+            var ip = "localhost";
+            if (Device.RuntimePlatform == Device.Android)
+                ip = "10.0.2.2";
+
+            hubConnection = new HubConnectionBuilder()
+                .WithUrl($"http://{ip}:5000/ChatHub")
+                .Build();
+
+            //hubConnection = new HubConnectionBuilder().WithUrl("http://10.0.2.2:5000/ChatHub").Build();
         }
 
         public async Task Connect()
